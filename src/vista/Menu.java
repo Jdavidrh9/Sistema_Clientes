@@ -21,6 +21,7 @@ public class Menu {
 	List<Cliente> lista = new ArrayList<>();
 	int p = -1, cc = 0;
 
+	
 	public final void iniciarMenu() {
 		String opcion = "";
 		do {
@@ -80,18 +81,35 @@ public class Menu {
 	}
 
 	public void agregarClientes() {
-
+		
+		String run = "";
+		String nombre = "";
+		String apellido = "";
+		String aniosCliente = "";
+		
 		Cliente c = new Cliente();
 		
 		System.out.println("\n-------------CREAR CLIENTE-------------");
-		System.out.println("Ingrese RUN del Cliente: ");
-		c.setRunCliente(scan.nextLine().trim());
-		System.out.println("Ingrese Nombre del Cliente: ");
-		c.setNombreCliente(scan.nextLine().trim());
-		System.out.println("Ingrese Apellido del Cliente: ");
-		c.setApellidoCliente(scan.nextLine().trim()); 
-		System.out.println("Ingrese años como Cliente: ");
-		c.setAniosCliente(scan.nextLine().trim());
+		do {
+			System.out.println("Ingrese RUN del Cliente (Ejemplo:1111111-1): ");
+			run = scan.nextLine().trim();
+		} while (!(run.length() > 8));
+		c.setRunCliente(run);
+		do {
+			System.out.println("Ingrese Nombre del Cliente: ");
+			nombre = scan.nextLine().trim();
+		} while (!(nombre.length() > 2));
+		c.setNombreCliente(nombre);
+		do {
+			System.out.println("Ingrese Apellido del Cliente: ");
+			apellido = scan.nextLine().trim();
+		} while (!(apellido.length() > 2));
+		c.setApellidoCliente(apellido);
+		do {
+			System.out.println("Ingrese años como Cliente: ");
+			aniosCliente = scan.nextLine().trim();
+		} while (!(aniosCliente.length()>0));
+		c.setAniosCliente(aniosCliente);
 		c.setNombreCategoria(CategoriaEnum.ACTIVO);
 		System.out.println("\n---------------------------------------");
 
@@ -162,26 +180,34 @@ public class Menu {
 							switch (opc) {
 							case "1": {
 								System.out.println("\n-------------Actualizando estado del Cliente-------------");
-								System.out.println("Ingrese nuevo RUN del Cliente:");
-								mod = scan.nextLine().trim();
+								do {
+									System.out.println("Ingrese RUN del Cliente (Ejemplo:1111111-1): ");
+									mod = scan.nextLine().trim();
+								} while (!(mod.length() > 8));
 								cs.setRunCliente(mod);
 								break;
 							}
 							case "2": {
+								do {
 								System.out.println("\nIngrese el nuevo nombre del Cliente: ");
 								mod = scan.nextLine().trim();
+								}while (!(mod.length() > 2));
 								cs.setNombreCliente(mod);
 								break;
 							}
 							case "3": {
+								do {
 								System.out.println("\nIngrese el nuevo apellido del Cliente: ");
 								mod = scan.nextLine().trim();
+								}while (!(mod.length() > 2));
 								cs.setApellidoCliente(mod);
 								break;
 							}
 							case "4": {
+								do {
 								System.out.println("\nIngrese la nueva cantidad de años: ");
 								mod = scan.nextLine().trim();
+								}while(!(mod.length() > 0));
 								cs.setAniosCliente(mod);
 								break;
 							}

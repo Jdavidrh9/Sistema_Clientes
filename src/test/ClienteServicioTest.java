@@ -19,7 +19,7 @@ public class ClienteServicioTest {
 	@Test
 	public void agregarClienteTest() { 
 		//Given
-		Cliente c = new Cliente("2", "2", "2", "2", null);
+		Cliente c = new Cliente("27016699-7", "Juan", "Rivero", "2", null);
 		
 		//When
 		clienteServicio.agregarClientes(c);
